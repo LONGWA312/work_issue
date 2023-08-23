@@ -1,0 +1,10 @@
+SELECT 
+	dateline, COUNT(1) as total_count, COUNT(IF(taskid is NULL, TRUE, NULL)) as error_count 
+FROM 
+	BusinessLog  
+GROUP BY 
+	dateline
+
+ # 分组统计
+   total_count: 按日期分组的总数
+   error_count：在分组的基础上，过滤掉if条件中，taskid为空的数量
